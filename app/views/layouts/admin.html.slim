@@ -1,0 +1,22 @@
+doctype 5
+html lang='ja'
+  head
+    meta charset='utf-8'
+    title Asagao管理画面
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    - if current_admin
+      .navbar.navbar-default.navbar-static-top role='navigation'
+        .container
+          .navbar-header
+            = link_to 'Asagao', root_path, class: 'navbar-brand'
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-right
+              li= link_to 'ログアウト', destroy_admin_session_path, data: { method: 'delete' }
+    - if notice
+      p= notice
+    - if alert
+      p= alert
+    = yield
