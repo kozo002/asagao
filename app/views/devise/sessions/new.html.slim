@@ -1,0 +1,13 @@
+- content_for :signin do
+ true
+
+.container
+  = form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-signin', role: 'form' } do |f|
+    h2.form-signin-heading Please sign in
+    = f.email_field :email, class: 'form-control', placeholder: 'Email address', required: true, autofocus: true
+    = f.password_field :password, class: 'form-control', placeholder: 'Password', required: true
+    .checkbox
+      label
+        = f.check_box :remember_me
+        | Remember me
+    button.btn.btn-lg.btn-primary.btn-block type="submit" Sign in
