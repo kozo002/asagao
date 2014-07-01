@@ -19,7 +19,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
 
