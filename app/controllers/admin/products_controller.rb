@@ -31,7 +31,7 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   # PUT /admin/product/:slug
-  def upadte
+  def update
     if @product.update(product_params)
       redirect_to edit_admin_product_path(@product), notice: '製品を更新しました'
     else

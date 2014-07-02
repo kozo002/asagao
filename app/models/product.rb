@@ -5,7 +5,10 @@ class Product < ActiveRecord::Base
     presence: true
 
   validates :slug,
-    presence: true
+    presence: true,
+    format: { with: /[0-9a-z\-]/ }
+
+  before_validation :set_slug
 
   class << self
     def per_page
@@ -18,6 +21,10 @@ class Product < ActiveRecord::Base
   end
 
   def to_param
-    slug.parameterize
+    slug
+  end
+
+  def set_slug
+    self.slug = slug.parameterize
   end
 end
