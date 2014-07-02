@@ -26,4 +26,10 @@ html lang='ja'
     - unless content_for?(:disable_flash_messages)
       .container= flash_messages
 
+    .container
+      .row
+        .col-sm-3
+          ul.nav.nav-pills.nav-stacked
+            li class=(active_class(admin_root_path)) = link_to '管理画面トップ', admin_root_path
+
     = yield
