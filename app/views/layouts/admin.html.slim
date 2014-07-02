@@ -11,12 +11,17 @@ html lang='ja'
       .navbar.navbar-default.navbar-static-top role='navigation'
         .container
           .navbar-header
+            button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-collapse"
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
             = link_to 'Asagao', root_path, class: 'navbar-brand'
           .navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
               li= link_to 'ログアウト', destroy_admin_session_path, data: { method: 'delete' }
 
     - unless content_for?(:disable_flash_messages)
-      = flash_messages
+      .container= flash_messages
 
     = yield
