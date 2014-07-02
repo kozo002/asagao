@@ -16,7 +16,7 @@ html lang='ja'
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            = link_to 'Asagao', root_path, class: 'navbar-brand'
+            = link_to 'Asagao管理画面', root_path, class: 'navbar-brand'
           .navbar-collapse.collapse
             ul.nav.navbar-nav
               li= link_to 'サイトを開く', root_path, target: '_blank'
@@ -30,6 +30,6 @@ html lang='ja'
       .row
         .col-sm-3
           ul.nav.nav-pills.nav-stacked
-            li class=(active_class(admin_root_path)) = link_to '管理画面トップ', admin_root_path
+            li class=(active_class admin_root_path) = link_to '管理画面トップ', admin_root_path
 
     = yield
