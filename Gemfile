@@ -11,7 +11,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'sprockets', '2.11.0'
 gem 'devise'
-
+gem 'kaminari'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
