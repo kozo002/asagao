@@ -1,8 +1,12 @@
 - content_for :signin do
  true
 
+- content_for :disable_flash_messages do
+  true
+
 .container
   = form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-signin', role: 'form' } do |f|
+    = flash_messages
     h2.form-signin-heading Please sign in
     = f.email_field :email, class: 'form-control', placeholder: 'Email address', required: true, autofocus: true
     = f.password_field :password, class: 'form-control', placeholder: 'Password', required: true

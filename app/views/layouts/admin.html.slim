@@ -15,8 +15,8 @@ html lang='ja'
           .navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
               li= link_to 'ログアウト', destroy_admin_session_path, data: { method: 'delete' }
-    - if notice
-      p= notice
-    - if alert
-      p= alert
+
+    - unless content_for?(:disable_flash_messages)
+      = flash_messages
+
     = yield
