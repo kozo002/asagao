@@ -18,6 +18,8 @@ html lang='ja'
               span.icon-bar
             = link_to 'Asagao', root_path, class: 'navbar-brand'
           .navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li= link_to 'サイトを開く', root_path, target: '_blank'
             ul.nav.navbar-nav.navbar-right
               li= link_to 'ログアウト', destroy_admin_session_path, data: { method: 'delete' }
 
