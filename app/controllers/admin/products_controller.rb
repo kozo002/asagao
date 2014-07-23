@@ -48,6 +48,8 @@ class Admin::ProductsController < Admin::BaseController
     end
 
     def product_params
-      params.require(:product).permit(Product.param_keys)
+      params.require(:product).permit(Product.param_keys).merge(
+        publish_flag: !!params[:commit].match(/公開/)
+      )
     end
 end

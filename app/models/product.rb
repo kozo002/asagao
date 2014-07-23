@@ -6,7 +6,8 @@ class Product < ActiveRecord::Base
 
   validates :slug,
     presence: true,
-    format: { with: /[0-9a-z\-]/ }
+    format: { with: /[0-9a-z\-]/ },
+    uniqueness: true
 
   before_validation :set_slug
 

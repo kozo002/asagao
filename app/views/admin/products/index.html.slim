@@ -1,0 +1,25 @@
+.well
+  = link_to '新規登録', new_admin_product_path(@product), class: 'btn btn-default'
+
+table.table
+  thead
+    tr
+      th id
+      th #{ Product.human_attribute_name(:name) } / #{ Product.human_attribute_name(:slug) }
+      th= Product.human_attribute_name(:publish_flag)
+      th
+  tbody
+    - @products.each do |product|
+      tr
+        td= product.id
+        td
+          p= product.name
+          span.label.label-info= product.slug
+        td
+          - if product.published?
+            span.label.label-success 公開
+          - else
+            span.label.label-default 下書き
+        td= link_to '編集', edit_admin_product_path(product), class: 'btn btn-default'
+
+= paginate @products, theme: 'twitter-bootstrap-3'

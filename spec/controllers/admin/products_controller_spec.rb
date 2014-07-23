@@ -16,17 +16,6 @@ describe Admin::ProductsController do
     end
   end
 
-  describe 'GET #show' do
-    context 'ログインユーザーの場合' do
-      before { sign_in admin }
-      it '詳細ページが返ってくること' do
-        get :show, slug: product.to_param
-        expect(response).to be_success
-        expect(assigns[:product]).to eq(product)
-      end
-    end
-  end
-
   describe 'GET #new' do
     context 'ログインユーザーの場合' do
       before { sign_in admin }
