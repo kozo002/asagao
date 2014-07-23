@@ -1,13 +1,9 @@
 class Admin::ProductsController < Admin::BaseController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy]
 
   # GET /admin/products
   def index
     @products = Product.page(params[:page]).per(Product.per_page)
-  end
-
-  # GET /admin/products/:slug
-  def show
   end
 
   # GET /admin/products/new
