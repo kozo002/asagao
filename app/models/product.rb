@@ -1,12 +1,15 @@
 class Product < ActiveRecord::Base
   include PublishStateSwitchable
 
+  has_many :articles,
+    dependent: true
+
   validates :name,
     presence: true
 
   validates :slug,
     presence: true,
-    format: { with: /[0-9a-z\-]/ },
+    format: { with: SLUG_PATTERN },
     uniqueness: true
 
   before_validation :set_slug

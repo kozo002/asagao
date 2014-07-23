@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702140932) do
+ActiveRecord::Schema.define(version: 20140723142343) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -40,6 +40,20 @@ ActiveRecord::Schema.define(version: 20140702140932) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   add_index "admins", ["unlock_token"], name: "index_admins_on_unlock_token", unique: true
+
+  create_table "articles", force: true do |t|
+    t.string   "slug"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "published_at"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articles", ["published_at"], name: "index_articles_on_published_at"
+  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
+  add_index "articles", ["title"], name: "index_articles_on_title"
 
   create_table "products", force: true do |t|
     t.string   "name"
