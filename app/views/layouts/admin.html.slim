@@ -29,7 +29,8 @@ html lang='ja'
     .container
       .row
         .col-sm-3
-          ul.nav.nav-pills.nav-stacked
-            li class=(active_class admin_root_path) = link_to '管理画面トップ', admin_root_path
+          - if current_admin
+            ul.nav.nav-pills.nav-stacked
+              li class=(active_class admin_root_path) = link_to '管理画面トップ', admin_root_path
 
     = yield
