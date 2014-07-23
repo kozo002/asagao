@@ -13,4 +13,18 @@ class Article < ActiveRecord::Base
 
   validates :product_id,
     presence: true
+
+  class << self
+    def per_page
+      50
+    end
+
+    def param_keys
+      %w(slug title content publish_flag)
+    end
+  end
+
+  def to_param
+    slug
+  end
 end

@@ -1,0 +1,20 @@
+table.table
+  = render 'admin/products/product', product: @product
+
+= form_for [:admin, @product, @article], html: { class: 'form' } do |f|
+  = form_error_messages @article
+
+  .form-group
+    = f.label :slug
+    = form_text_field f, :slug
+
+  .form-group
+    = f.label :title
+    = form_text_field f, :title
+
+  .form-group
+    = f.label :content
+    = form_text_area f, :content
+
+  .form-group
+    = form_submit_buttons f, @article

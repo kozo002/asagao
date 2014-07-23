@@ -14,14 +14,4 @@
     = form_text_area f, :description
 
   .form-group
-    = f.submit '公開', class: 'btn btn-primary'
-    | &nbsp;
-    = f.submit '下書保存', class: 'btn btn-default'
-    | &nbsp;&nbsp;
-    - if @product.persisted?
-      - if @product.published?
-        span.label.label-success 公開
-      - else
-        span.label.label-default 下書き
-    - else
-      span.label.label-default 未保存
+    = form_submit_buttons f, @product

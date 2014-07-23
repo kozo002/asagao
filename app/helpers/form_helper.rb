@@ -20,6 +20,22 @@ module FormHelper
     builder.submit(text, options)
   end
 
+  def form_submit_buttons(builder, resource)
+    builder.submit('公開', class: 'btn btn-primary') +
+    '&nbsp;'.html_safe +
+    builder.submit('下書き保存', class: 'btn btn-default') +
+    '&nbsp;&nbsp;'.html_safe +
+    if resource.persisted?
+      if resource.published?
+        content_tag(:span, '公開', class: 'label label-success')
+      else
+        content_tag(:span, '下書き', class: 'label label-default')
+      end
+    else
+      content_tag(:span, '未保存', class: 'label label-default')
+    end
+  end
+
   def form_text_area(builder, attr_name, options = {})
     options = { class: 'form-control autosize', rows: 5 }.merge(options)
     builder.text_area(attr_name, options)

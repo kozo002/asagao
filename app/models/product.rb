@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   include PublishStateSwitchable
 
   has_many :articles,
-    dependent: true
+    dependent: :destroy
 
   validates :name,
     presence: true
