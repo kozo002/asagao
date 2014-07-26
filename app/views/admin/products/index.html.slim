@@ -6,7 +6,8 @@ table.table
     tr
       th id
       th #{ Product.human_attribute_name(:name) } / #{ Product.human_attribute_name(:slug) }
-      th= Product.human_attribute_name(:publish_flag)
+      th= Product.human_attribute_name :publish_flag
+      th #{ Product.human_attribute_name :created_at } / #{ Product.human_attribute_name :updated_at }
       th
   tbody
     - @products.each do |product|

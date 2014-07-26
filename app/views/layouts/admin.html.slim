@@ -32,6 +32,7 @@ html lang='ja'
           - if current_admin
             ul.nav.nav-pills.nav-stacked
               li class=(active_class admin_root_path) = link_to '管理画面トップ', admin_root_path
+              li class=(active_class admin_articles_path) = link_to '全記事一覧', admin_articles_path
               li class=(active_class admin_products_path, lefthand_match: true) = link_to 'プロダクト', admin_products_path
         .col-sm-9
           = yield

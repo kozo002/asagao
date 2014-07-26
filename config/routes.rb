@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'pages#home'
 
+    resources :articles, param: :slug, only: [:index]
+
     resources :products, param: :slug do
       resources :articles, param: :slug, module: :products
     end

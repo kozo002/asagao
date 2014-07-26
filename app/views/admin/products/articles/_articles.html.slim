@@ -1,0 +1,18 @@
+table.table
+  thead
+    tr
+      th id
+      th= Article.human_attribute_name :title
+      th= Article.human_attribute_name :publish_flag
+      th= Product.human_attribute_name :name
+      th #{ Article.human_attribute_name :created_at } / #{ Article.human_attribute_name :updated_at }
+      th
+  tbody
+    - articles.each do |article|
+      tr
+        td= article.id
+        td= article.title
+        td= publish_state_label article
+        td= article.product.name
+        td= timestamp_table article
+        td= link_to '編集', edit_admin_product_article_path(article.product, article), class: 'btn btn-default'

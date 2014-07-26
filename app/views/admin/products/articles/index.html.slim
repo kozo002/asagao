@@ -1,18 +1,5 @@
 .well
   = link_to '新規作成', new_admin_product_article_path(@product), class: 'btn btn-default'
 
-table.table
-  thead
-    tr
-      th id
-      th= Article.human_attribute_name :title
-      th= Article.human_attribute_name :publish_flag
-      th
-  tbody
-    - @articles.each do |article|
-      tr
-        td= article.id
-        td= article.title
-        td= link_to '編集', edit_admin_product_article_path(@product, article), class: 'btn btn-default'
-
+= render 'articles', articles: @articles
 = paginate @articles, theme: 'twitter-bootstrap-3'

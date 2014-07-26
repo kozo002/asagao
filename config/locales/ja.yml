@@ -193,11 +193,19 @@ ja:
       short: ! '%y/%m/%d %H:%M'
     pm: 午後
   activerecord:
+    common_attributes: &common_attributes
+      title: タイトル
+      slug: スラッグ
+      publish_flag: 公開状態
+      created_at: 作成日時
+      updated_at: 更新日時
     models:
       product: 製品
+      article: 記事
     attributes:
       product:
+        <<: *common_attributes
         name: 製品名
-        slug: スラッグ
         description: 製品概要
-        publish_flag: 公開状態
+      article:
+        <<: *common_attributes

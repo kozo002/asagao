@@ -1,11 +1,7 @@
 class Admin::Products::ArticlesController < Admin::BaseController
+  include Admin::ArticleIndexable
   before_action :set_product
   before_action :set_article, only: [:edit, :update, :destroy]
-
-  # GET /admin/products/:product_slug/articles
-  def index
-    @articles = @product.articles.page(params[:page]).per(Article.per_page)
-  end
 
   # GET /admin/products/:product_slug/articles/new
   def new
