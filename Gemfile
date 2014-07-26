@@ -23,6 +23,8 @@ gem 'mini_magick'
 gem 'fog'
 gem 'unf'
 gem 'nested_form'
+gem 'acts_as_list'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'sqlite3'

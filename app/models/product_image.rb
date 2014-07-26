@@ -6,4 +6,8 @@ class ProductImage < Image
 
   has_many :products,
     through: :attachments
+
+  def attachment
+    attachments.first
+  end
 end

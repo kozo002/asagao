@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
     dependent: :destroy
 
   has_many :images,
+    -> { order('image_attachments.position ASC') },
     through: :attachments
 
   validates :name,

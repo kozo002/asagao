@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
     resources :products, param: :slug do
       resources :articles, param: :slug, module: :products
-      resources :images, module: :products
+      resources :images, module: :products do
+        put :higher
+        put :lower
+      end
     end
 
     resources :images

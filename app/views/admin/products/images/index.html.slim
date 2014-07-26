@@ -1,5 +1,11 @@
 table.table= render 'admin/products/product', product: @product
-.well= render 'form'
+.well
+  = form_for @image, url: admin_product_images_path, html: { class: 'form-inline' } do |f|
+    = f.file_field :image, class: 'form-control'
+    = space
+    = f.text_field :title, class: 'form-control', placeholder: 'タイトル(任意)'
+    = space
+    = f.submit 'アップロード', class: 'btn btn-primary'
 
 table.table
   thead
@@ -7,6 +13,7 @@ table.table
       th id
       th 画像 / タイトル
       th= timestamp_table_heading ProductImage
+      th 順序
       th
   tbody
     - @images.each do |image|
@@ -17,5 +24,11 @@ table.table
           br
           = image.title
         td= timestamp_table image
+        td
+          #{ image.attachment.position }番目に表示
+          - unless image.attachment.first?
+            = link_to fa_icon('chevron-up'), admin_product_image_higher_path(@product, image), data: { method: :put }
+          - unless image.attachment.last?
+            = link_to fa_icon('chevron-down'), admin_product_image_lower_path(@product, image), data: { method: :put }
         td
           = delete_button '削除', admin_product_image_path(@product, image)

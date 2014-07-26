@@ -1,6 +1,0 @@
-= form_for @image, url: admin_product_images_path, html: { class: 'form-inline' } do |f|
-  = f.file_field :image, class: 'form-control'
-  = space
-  = f.text_field :title, class: 'form-control', placeholder: 'タイトル(任意)'
-  = space
-  = f.submit 'アップロード', class: 'btn btn-primary'
