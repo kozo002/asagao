@@ -24,6 +24,7 @@ gem 'fog'
 gem 'nested_form'
 gem 'acts_as_list'
 gem 'font-awesome-rails'
+gem 'haml-rails'
 
 group :development, :test do
   gem 'sqlite3'

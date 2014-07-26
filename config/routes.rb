@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  get :styleguide, to: 'pages#styleguide' unless Rails.env.production?
 
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
