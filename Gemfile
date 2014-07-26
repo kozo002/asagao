@@ -16,8 +16,12 @@ gem 'bootstrap-kaminari-views'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-
 gem 'bcrypt', '~> 3.1.7'
+gem 'carrierwave'
+gem 'carrierwave-processing'
+gem 'mini_magick'
+gem 'fog'
+gem 'unf'
 
 group :development, :test do
   gem 'sqlite3'
