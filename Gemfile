@@ -41,4 +41,5 @@ group :production do
   gem 'asset_sync'
   gem 'unf'
   gem 'therubyracer'
+  gem 'rails_12factor'
 end
