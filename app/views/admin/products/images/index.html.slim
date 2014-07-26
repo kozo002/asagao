@@ -5,7 +5,7 @@ table.table= render 'admin/products/product', product: @product
     = space
     = f.text_field :title, class: 'form-control', placeholder: 'タイトル(任意)'
     = space
-    = f.submit 'アップロード', class: 'btn btn-primary'
+    = f.submit 'アップロード', class: 'btn btn-primary', data: { disable_with: '送信中...' }
 
 table.table
   thead

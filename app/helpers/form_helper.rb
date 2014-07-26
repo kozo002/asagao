@@ -16,7 +16,7 @@ module FormHelper
 
   def form_submit_button(builder, resource)
     text = (resource.persisted? ? '更新' : '登録')
-    options = { class: 'btn btn-primary', data: { disabled_with: '送信中...' } }
+    options = { class: 'btn btn-primary', data: { disable_with: '送信中...' } }
     builder.submit(text, options)
   end
 
