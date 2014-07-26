@@ -1,0 +1,9 @@
+= button admin_product_articles_path(product) do
+  | この製品の記事一覧
+  = space
+  span.badge= product.articles.count
+= space
+= button admin_product_images_path(product) do
+  | この製品の画像一覧
+  = space
+  span.badge= product.images.count

@@ -5,6 +5,7 @@ class Image < ActiveRecord::Base
     presence: true
 
   scope :order_desc, -> { order('created_at DESC') }
+  scope :plain, -> { where(type: nil) }
 
   class << self
     def param_keys

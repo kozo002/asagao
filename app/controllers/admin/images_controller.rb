@@ -3,7 +3,7 @@ class Admin::ImagesController < Admin::BaseController
 
   # GET /admin/images
   def index
-    @images = Image.order_desc.page(params[:page]).per(Image.per_page)
+    @images = Image.plain.order_desc.page(params[:page]).per(Image.per_page)
     @image = Image.new
   end
 

@@ -1,0 +1,21 @@
+table.table= render 'admin/products/product', product: @product
+.well= render 'form'
+
+table.table
+  thead
+    tr
+      th id
+      th 画像 / タイトル
+      th= timestamp_table_heading ProductImage
+      th
+  tbody
+    - @images.each do |image|
+      tr
+        td= image.id
+        td
+          = image_tag image.image_url(:thumb), width: 100
+          br
+          = image.title
+        td= timestamp_table image
+        td
+          = delete_button '削除', admin_product_image_path(@product, image)

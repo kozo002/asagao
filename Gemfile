@@ -22,6 +22,7 @@ gem 'carrierwave-processing'
 gem 'mini_magick'
 gem 'fog'
 gem 'unf'
+gem 'nested_form'
 
 group :development, :test do
   gem 'sqlite3'

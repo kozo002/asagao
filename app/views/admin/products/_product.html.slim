@@ -8,7 +8,4 @@ tr
   td
     = button '編集', edit_admin_product_path(product)
     = space
-    = button admin_product_articles_path(product) do
-      | この製品の記事一覧
-      = space
-      span.badge= product.articles.count
+    = render 'admin/products/association_buttons', product: product

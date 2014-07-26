@@ -3,6 +3,7 @@
 #= require turbolinks
 #= require bootstrap-sprockets
 #= require jquery.autosize
+#= require jquery_nested_form
 #= require_tree .
 
 jQuery ($) ->

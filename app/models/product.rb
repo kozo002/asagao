@@ -4,6 +4,14 @@ class Product < ActiveRecord::Base
   has_many :articles,
     dependent: :destroy
 
+  has_many :attachments,
+    class_name: 'ImageAttachment',
+    as: :attachable,
+    dependent: :destroy
+
+  has_many :images,
+    through: :attachments
+
   validates :name,
     presence: true
 
