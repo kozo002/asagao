@@ -1,4 +1,8 @@
 module DataHelper
+  def timestamp_table_heading(model)
+    "#{ model.human_attribute_name :created_at } / #{ model.human_attribute_name :updated_at }"
+  end
+
   def timestamp_table(resource)
     content_tag(:table, class: 'table') do
       content_tag(:tr) do

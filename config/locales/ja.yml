@@ -209,3 +209,5 @@ ja:
         description: 製品概要
       article:
         <<: *common_attributes
+      image:
+        <<: *common_attributes

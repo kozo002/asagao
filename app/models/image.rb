@@ -3,4 +3,16 @@ class Image < ActiveRecord::Base
 
   validates :image,
     presence: true
+
+  scope :order_desc, -> { order('created_at DESC') }
+
+  class << self
+    def param_keys
+      %w(image title)
+    end
+
+    def per_page
+      50
+    end
+  end
 end

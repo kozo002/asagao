@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     resources :products, param: :slug do
       resources :articles, param: :slug, module: :products
     end
+
+    resources :images
   end
 end
