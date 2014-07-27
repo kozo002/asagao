@@ -1,2 +1,15 @@
 @import 'bootstrap';
+@import 'font-awesome';
+@import 'compass/css3';
 @import 'agency';
+@import 'variables';
+
+body {
+  padding-top: 90px;
+}
+
+.navbar {
+  margin: 0;
+}
+
+@import 'modules/*';

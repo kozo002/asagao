@@ -14,6 +14,8 @@ class Article < ActiveRecord::Base
   validates :product_id,
     presence: true
 
+  scope :order_desc, -> { order('created_at DESC') }
+
   class << self
     def per_page
       50

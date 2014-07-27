@@ -23,6 +23,8 @@ class Product < ActiveRecord::Base
 
   before_validation :set_slug
 
+  scope :order_desc, -> { order('created_at DESC') }
+
   class << self
     def per_page
       50

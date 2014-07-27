@@ -1,0 +1,14 @@
+%article.article
+  %header.article__header
+    %h1.article__title= link_to 'あの機能をものすごくいい感じにしたすごい製品の話と、あの部品はアレ', '#'
+    .article__author
+      %span.text By #{ link_to 'kozo yamagata', '#' }
+      .image= image_tag 'http://lorempixel.com/40/40', class: 'img-circle'
+    .article__data
+      %ul.list-inline
+        %li
+          %time.date #{ fa_icon 'calendar' } #{ l Time.now }
+        %li
+          %span.comments #{ fa_icon 'comment' } 9 Comments
+  .article__content
+    .article__excerpt.text-muted
