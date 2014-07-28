@@ -1,4 +1,5 @@
-.well= render 'association_buttons', product: @product
+- if @product.persisted?
+  .well= render 'association_buttons', product: @product
 
 = form_for [:admin, @product], html: { class: 'form' } do |f|
   = form_error_messages @product
