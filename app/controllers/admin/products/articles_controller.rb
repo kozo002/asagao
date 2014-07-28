@@ -12,7 +12,7 @@ class Admin::Products::ArticlesController < Admin::BaseController
   def create
     @article = @product.articles.build(article_params)
     if @article.save
-      redirect_to edit_path, notice: '記事を作成しました'
+      redirect_to index_path, notice: '記事を作成しました'
     else
       flash.now[:alert] = '記事を作成できませんでした'
       render :new
@@ -26,7 +26,7 @@ class Admin::Products::ArticlesController < Admin::BaseController
   # PUT /admin/products/:product_slug/articles/:slug
   def update
     if @article.update(article_params)
-      redirect_to edit_path, notice: '記事を更新しました'
+      redirect_to index_path, notice: '記事を更新しました'
     else
       flash.now[:alert] = '記事を更新できませんでした'
       render :edit
@@ -56,5 +56,9 @@ class Admin::Products::ArticlesController < Admin::BaseController
 
     def edit_path
       edit_admin_product_article_path(@product, @article)
+    end
+
+    def index_path
+      admin_product_articles_path(@product)
     end
 end

@@ -15,7 +15,7 @@ class Admin::ProductsController < Admin::BaseController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to edit_admin_product_path(@product), notice: '製品を登録しました'
+      redirect_to admin_products_path, notice: '製品を登録しました'
     else
       flash.now[:alert] = '製品を登録できませんでした'
       render :new
@@ -29,7 +29,7 @@ class Admin::ProductsController < Admin::BaseController
   # PUT /admin/product/:slug
   def update
     if @product.update(product_params)
-      redirect_to edit_admin_product_path(@product), notice: '製品を更新しました'
+      redirect_to admin_product_path, notice: '製品を更新しました'
     else
       flash[:alert] = '製品を更新できませんでした'
       render :edit
