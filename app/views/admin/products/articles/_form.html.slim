@@ -5,12 +5,13 @@ table.table
   = form_error_messages @article
 
   .form-group
-    = f.label :slug
-    = form_text_field f, :slug
-
-  .form-group
     = f.label :title
     = form_text_field f, :title
+
+  .form-group
+    = f.label :slug
+    = form_text_field f, :slug
+    .help-block 半角英数字とハイフンが使えます
 
   .form-group
     = f.label :content
