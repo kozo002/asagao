@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   include PublishStateSwitchable
+  include Categorizable
 
   has_many :articles,
     dependent: :destroy

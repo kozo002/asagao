@@ -26,6 +26,7 @@ gem 'nested_form'
 gem 'acts_as_list'
 gem 'font-awesome-rails'
 gem 'haml-rails'
+gem 'ancestry'
 
 group :development, :test do
   gem 'sqlite3'

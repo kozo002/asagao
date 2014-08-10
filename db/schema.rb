@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726034133) do
+ActiveRecord::Schema.define(version: 20140728143904) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -54,6 +54,40 @@ ActiveRecord::Schema.define(version: 20140726034133) do
   add_index "articles", ["published_at"], name: "index_articles_on_published_at"
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
   add_index "articles", ["title"], name: "index_articles_on_title"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.integer  "position"
+    t.string   "ancestry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["position", "ancestry"], name: "index_categories_on_position_and_ancestry"
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true
+
+  create_table "categorizations", force: true do |t|
+    t.string   "categorizable_type"
+    t.integer  "categorizable_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categorizations", ["categorizable_type", "categorizable_id"], name: "categorizable_index"
+  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id"
+
+  create_table "image_attachments", force: true do |t|
+    t.string   "attachable_type"
+    t.integer  "attachable_id"
+    t.integer  "position"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "image_attachments", ["attachable_type", "attachable_id"], name: "attachable_index"
 
   create_table "images", force: true do |t|
     t.string   "image"
