@@ -211,3 +211,6 @@ ja:
         <<: *common_attributes
       image:
         <<: *common_attributes
+      category:
+        <<: *common_attributes
+        name: カテゴリー名

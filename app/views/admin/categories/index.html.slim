@@ -1,0 +1,11 @@
+.well
+  = link_to '新規登録', new_admin_category_path, class: 'btn btn-default'
+
+table.table
+  thead
+    tr
+      th id
+      th #{ Category.human_attribute_name(:name) } / #{ Category.human_attribute_name(:slug) }
+      th
+  tbody
+    = nested_categories 'admin/categories/category', @categories

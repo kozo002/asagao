@@ -1,0 +1,19 @@
+- if @category.parent.present?
+  h4 親カテゴリー
+  table.table= render @category.parent
+
+= form_for [:admin, @category], html: { class: 'form' } do |f|
+  = form_error_messages @category
+  = f.hidden_field :parent_id
+
+  .form-group
+    = f.label :name
+    = form_text_field f, :name
+
+  .form-group
+    = f.label :slug
+    = form_text_field f, :slug
+    .help-block 半角英数字とハイフンが使えます
+
+  .form-group
+    = form_submit_button f, @category

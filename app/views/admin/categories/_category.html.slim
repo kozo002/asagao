@@ -1,0 +1,7 @@
+tr class=(category.root? ? '' : "nested-#{ category.ancestors.length }")
+  td= category.id
+  td #{ category.name } / #{ category.slug }
+  td
+    = link_to '編集', edit_admin_category_path(category), class: 'btn btn-default'
+    = space
+    = link_to '子カテゴリーを作成', new_admin_category_path(parent_id: category.id), class: 'btn btn-default'

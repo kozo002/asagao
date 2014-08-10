@@ -22,5 +22,6 @@ Rails.application.routes.draw do
       end
     end
     resources :images
+    resources :categories, param: :slug
   end
 end
