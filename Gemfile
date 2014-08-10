@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 ruby '2.0.0'
 
 gem 'rails', '4.1.2'
@@ -27,6 +28,8 @@ gem 'acts_as_list'
 gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'ancestry'
+gem 'chosen-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'sqlite3'

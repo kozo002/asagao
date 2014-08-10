@@ -202,11 +202,14 @@ ja:
     models:
       product: 製品
       article: 記事
+      categorization: カテゴライズ
+      category: カテゴリー
     attributes:
       product:
         <<: *common_attributes
         name: 製品名
         description: 製品概要
+        category: 製品カテゴリー
       article:
         <<: *common_attributes
       image:
@@ -214,3 +217,6 @@ ja:
       category:
         <<: *common_attributes
         name: カテゴリー名
+      categorization:
+        <<: *common_attributes
+        category: カテゴリー

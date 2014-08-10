@@ -31,4 +31,19 @@ class Category < ActiveRecord::Base
   def set_slug
     self.slug = slug.parameterize
   end
+
+  def self.arrange_as_array(options = {}, hash = nil)
+    hash ||= arrange(options)
+
+    arr = []
+    hash.each do |node, children|
+      arr << node
+      arr += arrange_as_array(options, children) unless children.nil?
+    end
+    arr
+  end
+
+  def name_for_select
+    "#{ 'ー' * depth } #{ name }"
+  end
 end

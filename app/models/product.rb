@@ -32,7 +32,9 @@ class Product < ActiveRecord::Base
     end
 
     def param_keys
-      %w(name slug description publish_flag)
+      %w(name slug description publish_flag) << {
+        categorizations_attributes: [:id, :_destroy, :category_id]
+      }
     end
   end
 

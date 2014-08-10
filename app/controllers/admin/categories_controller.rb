@@ -8,7 +8,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   # GET /admin/categories/new
   def new
-    @category = Category.new(parent_id: params[:parent_id])
+    @category = Category.new(parent_id: params[:parent_id], category: categories_for_select.first)
   end
 
   # POST /admin/categories

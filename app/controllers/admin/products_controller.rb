@@ -1,5 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
   before_action :set_product, only: [:edit, :update, :destroy]
+  helper_method :categories_for_select
 
   # GET /admin/products
   def index
@@ -29,7 +30,7 @@ class Admin::ProductsController < Admin::BaseController
   # PUT /admin/product/:slug
   def update
     if @product.update(product_params)
-      redirect_to admin_product_path, notice: '製品を更新しました'
+      redirect_to admin_products_path, notice: '製品を更新しました'
     else
       flash[:alert] = '製品を更新できませんでした'
       render :edit
@@ -51,5 +52,9 @@ class Admin::ProductsController < Admin::BaseController
       params.require(:product).permit(Product.param_keys).merge(
         publish_flag: !!params[:commit].match(/公開/)
       )
+    end
+
+    def categories_for_select
+      @categories ||= Category.arrange_as_array(order: :position)
     end
 end

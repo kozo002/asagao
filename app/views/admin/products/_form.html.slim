@@ -1,7 +1,7 @@
 - if @product.persisted?
   .well= render 'association_buttons', product: @product
 
-= form_for [:admin, @product], html: { class: 'form' } do |f|
+= nested_form_for [:admin, @product], html: { class: 'form' } do |f|
   = form_error_messages @product
 
   .form-group
@@ -16,6 +16,18 @@
   .form-group
     = f.label :description
     = form_text_area f, :description
+
+  .form-group
+    .panel.panel-default
+      .panel-heading
+        = f.label :category
+      .panel-body
+        table.table#fields-for-categories
+          = f.fields_for :categorizations, wrapper: false do |cf|
+            tr.fields
+              td= cf.collection_select :category_id, categories_for_select, :id, :name_for_select, {}, { class: 'chosen' }
+              td= cf.link_to_remove '解除', class: 'btn btn-default'
+        = f.link_to_add 'カテゴリー追加', :categorizations, class: 'btn btn-default', data: { target: '#fields-for-categories' }
 
   .form-group
     = form_submit_buttons f, @product

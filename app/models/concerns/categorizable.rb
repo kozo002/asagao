@@ -6,6 +6,9 @@ module Categorizable
       as: :categorizable,
       dependent: :destroy
 
+    accepts_nested_attributes_for :categorizations,
+      allow_destroy: true
+
     has_many :categories,
       through: :categorizations
   end
