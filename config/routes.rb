@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       end
     end
     resources :images
-    resources :categories, param: :slug
+    resources :categories, param: :slug do
+      put :higher
+      put :lower
+    end
   end
 end

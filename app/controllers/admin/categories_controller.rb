@@ -1,9 +1,9 @@
 class Admin::CategoriesController < Admin::BaseController
-  before_action :set_category, only: [:edit, :update, :destroy]
+  before_action :set_category, only: [:edit, :update, :destroy, :higher, :lower]
 
   # GET /admin/categories
   def index
-    @categories = Category.arrange
+    @categories = Category.arrange(order: :position)
   end
 
   # GET /admin/categories/new
@@ -42,9 +42,21 @@ class Admin::CategoriesController < Admin::BaseController
     redirect_to admin_categories_path, notice: '削除しました'
   end
 
+  # PUT /admin/categories/:category_slug/higher
+  def higher
+    @category.move_higher
+    redirect_to admin_categories_path, notice: '順序を上げました'
+  end
+
+  # PUT /admin/categories/:category_slug/lower
+  def lower
+    @category.move_lower
+    redirect_to admin_categories_path, notice: '順序を下げました'
+  end
+
   private
     def set_category
-      @category = Category.find_by_slug(params[:slug])
+      @category = Category.find_by_slug(params[:slug] || params[:category_slug])
     end
 
     def category_params

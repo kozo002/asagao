@@ -2,6 +2,9 @@ tr class=(category.root? ? '' : "nested-#{ category.ancestors.length }")
   td= category.id
   td #{ category.name } / #{ category.slug }
   td
+    = link_to fa_icon('chevron-up'), admin_category_higher_path(category), data: { method: :put } unless category.first?
+    = link_to fa_icon('chevron-down'), admin_category_lower_path(category), data: { method: :put } unless category.last?
+  td
     = link_to '編集', edit_admin_category_path(category), class: 'btn btn-default'
     = space
     = link_to '子カテゴリーを作成', new_admin_category_path(parent_id: category.id), class: 'btn btn-default'
